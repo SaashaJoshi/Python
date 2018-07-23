@@ -1,0 +1,6 @@
+numlist=input('Enter the list: ')
+numlist=numlist.split(',')
+element=input('Enter the element to be inserted: ')
+index=int(input('enter the index position: '))
+numlist.insert(index, element)
+print(numlist)
