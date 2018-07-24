@@ -39,6 +39,12 @@ def win(board, marker):
 def space(board, position):
     return board[position]==' '
 
+def check(board):
+    for i  in range(1, 10):
+        if space(board, i):
+            return False
+    return True
+
 
 def play():
     board = [' '] * 10
@@ -46,26 +52,40 @@ def play():
     print('Player 1: ', player[0])
     print('Player 2: ', player[1])
 
-
-    step=9
     flag=1
-    while step<=9:
-        while flag:
-            displayBoard(board)
-            position=checkPosition()
-            placeMarker(board, position, player[0])
-            step-=1
-            flag=0
-            displayBoard(board)
-            print('\n'*100)
+    player=0
 
-        while not flag:
+    while flag:
+        while not player:
             displayBoard(board)
-            position=checkPosition()
+            position = checkPosition()
+            placeMarker(board, position, player[0])
+
+            if win(board, player[0]):
+                displayBoard(board)
+                print('Congratulations! Player 1 won the game!')
+                flag=0
+            elif(check(board)):
+                displayBoard(board)
+                print('The game is a draw!')
+            else:
+                player=1
+
+            print('\n' * 100)
+
+        while player:
+            displayBoard(board)
+            position = checkPosition()
             placeMarker(board, position, player[1])
-            step -= 1
-            flag=1
-            displayBoard(board)
-            print('\n'*100)
+
+            if win(board, player[1]):
+                displayBoard(board)
+                print('Congratulations! Player 2 won the game!')
+                flag=0
+            elif (check(board)):
+                displayBoard(board)
+                print('The game is a draw!')
+            else:
+                player = 0
 
 play()
