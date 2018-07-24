@@ -67,11 +67,13 @@ def play():
                 displayBoard(board)
                 print('Congratulations! Player 1 won the game!')
                 flag=0
-            elif(check(board)):
-                displayBoard(board)
-                print('The game is a draw!')
             else:
-                game=1
+                if(check(board)):
+                    displayBoard(board)
+                    print('The game is a draw!')
+                    flag=0
+                else:
+                    game=1
 
         if game:
             displayBoard(board)
@@ -82,10 +84,12 @@ def play():
                 displayBoard(board)
                 print('Congratulations! Player 2 won the game!')
                 flag=0
-            elif (check(board)):
-                displayBoard(board)
-                print('The game is a draw!')
             else:
-                game = 0
+                if (check(board)):
+                    displayBoard(board)
+                    print('The game is a draw!')
+                    flag=0
+                else:
+                    game = 0
 
 play()
