@@ -71,8 +71,6 @@ def play():
             else:
                 player=1
 
-            print('\n' * 100)
-
         while player:
             displayBoard(board)
             position = checkPosition()
