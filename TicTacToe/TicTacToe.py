@@ -12,18 +12,14 @@ def displayBoard(board):
     print('  |       |')
 
 def playerInput():
-    marker=['X', 'O']
-    marker1=input('Player 1 chose marker: X or O: ').upper()
-    if marker1.upper()==marker[0]:
-        return marker
+    marker=input('Player 1 chose marker: X or O: ').upper()
+    if marker=='X':
+        return ['X', 'O']
     else:
-        return marker.reverse()
+        return ['O', 'X']
 
 def placeMarker(board, position, marker):
     board[position] = marker
-
-def checkPosition():
-    return int(input('Enter your move: '))
 
 def win(board, marker):
 
@@ -45,6 +41,12 @@ def check(board):
             return False
     return True
 
+def choice(board):
+    position=0
+    if not check(board) or position not in [1,2,3,4,5,6,7,8,9]:
+        position=int(input('Enter your move: '))
+    return position
+
 
 def play():
     board = [' '] * 10
@@ -53,12 +55,12 @@ def play():
     print('Player 2: ', player[1])
 
     flag=1
-    player=0
+    game=0
 
     while flag:
-        while not player:
+        if not game:
             displayBoard(board)
-            position = checkPosition()
+            position = choice(board)
             placeMarker(board, position, player[0])
 
             if win(board, player[0]):
@@ -69,11 +71,11 @@ def play():
                 displayBoard(board)
                 print('The game is a draw!')
             else:
-                player=1
+                game=1
 
-        while player:
+        if game:
             displayBoard(board)
-            position = checkPosition()
+            position = choice(board)
             placeMarker(board, position, player[1])
 
             if win(board, player[1]):
@@ -84,6 +86,6 @@ def play():
                 displayBoard(board)
                 print('The game is a draw!')
             else:
-                player = 0
+                game = 0
 
 play()
