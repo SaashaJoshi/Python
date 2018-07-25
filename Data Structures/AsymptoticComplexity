@@ -1,0 +1,2 @@
+f(n)=O(g(n))
+This means that there are some suitable constants such as c>0 and n0>0, such that f is bounded by c.g(n)
