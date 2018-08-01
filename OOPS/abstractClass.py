@@ -4,3 +4,8 @@ class Mathematics():
 
     def calculate(self):
         raise NotImplementedError('Abstract Class example!')
+
+class Sum(Mathematics):
+
+    def calculate(self):
+        print(self.arg1+1)
