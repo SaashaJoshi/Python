@@ -6,12 +6,6 @@ class Account():
     def __str__(self):
         return (f'Owner: {self.owner}\nBalance: {self.balance}')
 
-    def __balance__(self):
-        return self.balance()
-
-    def __owner__(self):
-        return self.owner()
-
     def deposit(self, dcash):
         self.balance+=dcash
         print('Deposit Accepted!')
