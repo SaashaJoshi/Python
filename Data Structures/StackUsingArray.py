@@ -25,7 +25,7 @@ class Stack:
             print('Choice:\n1: Push\n2: Pop\n3: Display\n4: Exit')
             self.choice = int(input('Enter your choice: '))
             if self.choice == 1:
-                if self.size()>=5:
+                if self.size()>=500:
                     print('Stack is full!')
                     continue
                 else:
