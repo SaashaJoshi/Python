@@ -1,3 +1,5 @@
+# Implementing Stack using Arrays
+
 class Stack:
     def __init__(self):
         self.stack = []
@@ -19,10 +21,13 @@ class Stack:
     def size(self):
         return len(self.stack)
 
+    def top(self):
+        print(reversed(self.stack[0]))
+
     def enterchoice(self):
         self.empty()
         while True:
-            print('Choice:\n1: Push\n2: Pop\n3: Display\n4: Exit')
+            print('Choice:\n1: Push\n2: Pop\n3: Display\n4: Exit\n5: Top')
             self.choice = int(input('Enter your choice: '))
             if self.choice == 1:
                 if self.size()>=500:
@@ -45,6 +50,9 @@ class Stack:
                     self.display()
             if self.choice == 4:
                 exit(0)
+            if self.choice==5:
+                self.top()
             if self.choice not in [1,2,3,4]:
                 print('Wrong choice try again!')
-                             
+                continue
+                
